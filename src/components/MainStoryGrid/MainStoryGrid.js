@@ -12,6 +12,7 @@ import MainStory from '../MainStory';
 import SecondaryStory from '../SecondaryStory';
 import OpinionStory from '../OpinionStory';
 import Advertisement from '../Advertisement';
+import {QUERIES} from "../../constants";
 
 const MainStoryGrid = () => {
   return (
@@ -53,6 +54,14 @@ const Wrapper = styled.div`
     'advertisement';
   gap: 48px;
   margin-bottom: 48px;
+
+  @media ${QUERIES.laptopAndUp} {
+    grid-template-areas:
+    'main-story main-story secondary-stories'
+    'main-story main-story secondary-stories'
+    'opinion-stories'
+    'advertisement';
+  }
 `;
 
 const MainStorySection = styled.section`
