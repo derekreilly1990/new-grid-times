@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import {QUERIES} from "../../constants";
 
 const MainStory = ({
   id,
@@ -25,6 +26,7 @@ const MainStory = ({
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);
+  --line-count: 8;
 `;
 
 const Image = styled.img`
@@ -46,9 +48,15 @@ const Abstract = styled.p`
   white-space: pre-wrap;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp:var(--line-count);
   overflow: hidden;
-  
+
+  @media ${QUERIES.tabletAndUp} {
+    -webkit-line-clamp: var(--line-count) * 2;
+  }
+  @media ${QUERIES.laptopAndUp} {
+    -webkit-line-clamp:var(--line-count);
+  }
   
   
 `;
